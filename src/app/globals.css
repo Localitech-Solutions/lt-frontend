@@ -7,6 +7,16 @@
   --foreground: #171717;
 }
 
+@font-face {
+  font-family: 'Bebas';
+  src: url('./fonts/Bebas-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Century Gothic';
+  src: url('./fonts/centurygothic.ttf');
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -18,4 +28,34 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  caret-color: transparent;
+  --sb-track-color: #1b1b1b;
+  --sb-thumb-color: #414844;
+  --sb-size: 10px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 25px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 25px;
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }
